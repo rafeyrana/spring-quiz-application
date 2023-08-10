@@ -1,6 +1,7 @@
 package com.rafey.quiz.application.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,5 +26,14 @@ public class QuestionService {
         questionDao.save(question);
         return "Successfully added the question";
     }
+    public String deleteQuestion(Integer id) {
+        boolean valid  = questionDao.existsById(id);
+        if (!valid){
+            return "Error cannot find id " + id;
+        }
+        questionDao.deleteById(id);
+        return "Deleted question with id " + id;
+    }
+    
 
 }
