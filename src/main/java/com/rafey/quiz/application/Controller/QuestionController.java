@@ -22,8 +22,12 @@ public class QuestionController { // this is only for a single question
     public List<Question> getQuestionsByCategory(@PathVariable String category){
         return questionService.getQuestionsByCategory(category);
     }
-
-    public String addQuestion(Question question){
-        
+    @GetMapping("/difficulty/{difficulty}")
+    public List<Question> getQuestionsByDifficulty(@PathVariable String difficulty){
+        return questionService.getQuestionsByCategory(difficulty);
+    }
+    @PostMapping("add")
+    public String addQuestion(@RequestBody Question question){
+       return  questionService.addQuestion(question);
     }
 }

@@ -11,4 +11,5 @@ import com.rafey.quiz.application.Question;
 public interface QuestionDao extends JpaRepository<Question, Integer>{ 
 
     List<Question>findByCategory(String category); // jpa will self infer that the user wants to fetch by column value
+    List<Question>findByDifficulty(String difficulty); // jpa will self infer that the user wants to fetch by column value
 }

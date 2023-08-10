@@ -18,7 +18,12 @@ public class QuestionService {
     public List<Question> getQuestionsByCategory(String category) {
         return questionDao.findByCategory(category);
     }
-
-    // this is the service layer which we will use to implement the business logic
+    public List<Question> getQuestionsByDifficulty(String difficulty) {
+        return questionDao.findByCategory(difficulty);
+    }
+    public String addQuestion(Question question) {
+        questionDao.save(question);
+        return "Successfully added the question";
+    }
 
 }
