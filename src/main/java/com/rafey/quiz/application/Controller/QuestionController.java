@@ -34,5 +34,12 @@ public class QuestionController { // this is only for a single question
     public String deleteQuestion(@PathVariable Integer id){
         return questionService.deleteQuestion(id);
     }
+    @PutMapping("/put/{id}")
+    public String putQuestion(@PathVariable Integer id,
+    @RequestParam(required = false) String category,
+    @RequestParam(required = false) String difficulty){
+        return questionService.putQuestion(id, category, difficulty);
+
+    }
     
 }

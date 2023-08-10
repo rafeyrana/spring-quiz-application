@@ -1,6 +1,7 @@
 package com.rafey.quiz.application.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.rafey.quiz.application.Question;
 import com.rafey.quiz.application.Dao.QuestionDao;
+
+import jakarta.transaction.Transactional;
 
 @Service 
 public class QuestionService {
@@ -33,6 +36,29 @@ public class QuestionService {
         }
         questionDao.deleteById(id);
         return "Deleted question with id " + id;
+    }
+    @Transactional
+    public String putQuestion(Integer id, String category, String difficulty) {
+        if (!questionDao.existsById(id)) {
+            return "Error: Cannot find question with id " + id;
+        }
+
+        Question question = questionDao.findById(id).orElse(null);
+        if (question == null) {
+            return "Error: Unable to retrieve question with id " + id;
+        }
+
+        if (category != null && !category.isEmpty()) {
+            question.setCategory(category);
+        }
+
+        if (difficulty != null && !difficulty.isEmpty()) {
+            question.setDifficulty(difficulty);
+        }
+
+        // questionDao.save(question);
+
+        return "Question updated successfully";
     }
     
 
