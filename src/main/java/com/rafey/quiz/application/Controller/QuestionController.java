@@ -18,4 +18,12 @@ public class QuestionController { // this is only for a single question
     public List<Question> getAllQuestions(){
         return questionService.getAllQuestions();
     }
+    @GetMapping("/category/{category}")
+    public List<Question> getQuestionsByCategory(@PathVariable String category){
+        return questionService.getQuestionsByCategory(category);
+    }
+
+    public String addQuestion(Question question){
+        
+    }
 }

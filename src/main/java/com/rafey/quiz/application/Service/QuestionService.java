@@ -15,6 +15,10 @@ public class QuestionService {
     public List<Question> getAllQuestions() {
         return questionDao.findAll();
     }
+    public List<Question> getQuestionsByCategory(String category) {
+        return questionDao.findByCategory(category);
+    }
+
     // this is the service layer which we will use to implement the business logic
-    
+
 }
