@@ -1,4 +1,8 @@
-package com.rafey.quiz.application;
+package com.rafey.quiz.application.Model;
+
+
+
+import java.util.List;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -33,5 +37,10 @@ public class Question {
         this.option4 = option4;
         this.questionTitle = questionTitle;
         this.correctOption = correctOption;
+    }
+
+    public static List<Question> getRandomQuestionsByCategory(String category2, Integer number_of_questions,
+            String title) {
+        return null;
     }
 }

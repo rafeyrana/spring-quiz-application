@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.rafey.quiz.application.Question;
+import com.rafey.quiz.application.Model.Question;
 import com.rafey.quiz.application.Service.QuestionService;
 
 @RestController

@@ -9,8 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.rafey.quiz.application.Question;
 import com.rafey.quiz.application.Dao.QuestionDao;
+import com.rafey.quiz.application.Model.Question;
 
 @Service
 public class QuestionService {
